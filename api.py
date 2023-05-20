@@ -1,8 +1,6 @@
 import json
-
 import requests
 from requests_toolbelt.multipart.encoder import MultipartEncoder
-
 
 class PetFriends:
     """API-библиотека к web-приложению PetFriends"""
@@ -100,7 +98,6 @@ class PetFriends:
             'age': age,
             'animal_type': animal_type
         }
-
         res = requests.put(self.base_url + 'api/pets/' + pet_id, headers=headers, data=data)
         status = res.status_code
         result = ""
@@ -121,9 +118,7 @@ class PetFriends:
             'animal_type': animal_type,
             'age': age
         }
-
         res = requests.post(self.base_url + 'api/create_pet_simple', headers=headers, data=data)
-
         status = res.status_code
         result = ''
         try:
@@ -143,9 +138,7 @@ class PetFriends:
             'auth_key': auth_key['key'],
             'Content-Type': data.content_type
         }
-
         res = requests.post(self.base_url + 'api/pets/set_photo/' + pet_id, headers=headers, data=data)
-
         status = res.status_code
         result = ''
         try:
